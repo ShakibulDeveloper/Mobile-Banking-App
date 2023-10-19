@@ -15,32 +15,32 @@ class BottomAppBarWidget extends StatelessWidget{
         mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Text("Your Digital Banking Partner.", style: Theme.of(context).textTheme.headlineLarge),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(8.0, 12.0, 8.0, 16.0),
+            padding: const EdgeInsets.fromLTRB(16.0, 20.0, 16.0, 16.0),
             child: Row(
               children: [
                 SizedBox(
-                  width: 52.w,
-                  height: 54.sp,
+                  width: 50.w,
+                  height: 48.sp,
                   child: ElevatedButton(
                       onPressed: (){
                         Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
                       },
-                      child: const Text("Get Started!")
+                      child: const Text("Get Started")
                   ),
                 ),
-                SizedBox(width: 2.w),
+                SizedBox(width: 4.w),
                 CircleAvatar(
-                  backgroundColor: Colors.white70,
-                  child: Image.asset("assets/search.png", width: 24.sp,),
+                  backgroundColor: Colors.white,
+                  child: Image.asset("assets/search.png", width: 25.sp,),
                 ),
-                SizedBox(width: 2.w),
+                SizedBox(width: 3.w),
                 CircleAvatar(
-                  backgroundColor: Colors.white70,
-                  child: Image.asset("assets/apple.png", width: 24.sp,),
+                  backgroundColor: Colors.white,
+                  child: Image.asset("assets/apple.png", width: 25.sp,),
                 ),
               ],
             ),

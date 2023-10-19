@@ -16,12 +16,13 @@ class LoginScreen extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text("Hi, Welcome Back!", style: Theme.of(context).textTheme.headlineLarge),
+            SizedBox(height: 2.h),
             Text('Sign in to your account.', style: Theme.of(context).textTheme.bodySmall),
             SizedBox(height: 3.h),
             TextField(
@@ -35,7 +36,7 @@ class LoginScreen extends StatelessWidget{
               keyboardType: TextInputType.number,
               decoration: inputDecorationStyle("Enter Pin Number"),
             ),
-            TextButton(onPressed: (){}, child: const Text("Forgot pin?", style: TextStyle(color: ThemeColor.primaryColor))),
+            TextButton(onPressed: (){}, child: const Text("Forgot pin?", style: TextStyle(color: ThemeColor.primaryColor, fontFamily: 'Hind', fontWeight: FontWeight.w500))),
             SizedBox(height: 2.h),
             SizedBox(
               width: 100.w,

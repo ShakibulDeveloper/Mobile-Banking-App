@@ -5,6 +5,9 @@ import 'package:sizer/sizer.dart';
 //widget
 import 'package:mobile_banking_app/widgets/verify_input.dart';
 
+//screens
+import 'package:mobile_banking_app/screens/home.dart';
+
 class VerifyScreen extends StatelessWidget{
   const VerifyScreen({super.key});
 
@@ -17,6 +20,7 @@ class VerifyScreen extends StatelessWidget{
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text("Verify", style: Theme.of(context).textTheme.headlineLarge),
+            SizedBox(height: 1.h),
             Text("Check your phone for verification code.", style: Theme.of(context).textTheme.bodySmall),
             SizedBox(height: 3.h),
             Center(
@@ -47,7 +51,9 @@ class VerifyScreen extends StatelessWidget{
             height: 52.sp,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(backgroundColor: ThemeColor.primaryColor),
-              onPressed: (){},
+              onPressed: (){
+                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const HomeScreenState()), (route) => false);
+              },
               child: const Text("Continue"),
             ),
           ),

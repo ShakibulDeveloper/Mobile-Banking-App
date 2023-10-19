@@ -9,6 +9,7 @@ import 'package:mobile_banking_app/styles/text.dart';
 import 'package:mobile_banking_app/styles/elevated_button.dart';
 import 'package:mobile_banking_app/styles/appbar.dart';
 import 'package:mobile_banking_app/styles/bottom_appbar.dart';
+import 'package:mobile_banking_app/styles/outline_button.dart';
 
 void main(){
   runApp(const MyApp());
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget{
             elevatedButtonTheme: elevatedButtonStyle(),
             appBarTheme: appBarStyle(),
             bottomAppBarTheme: bottomAppBarStyle(),
+            outlinedButtonTheme: outlineButtonStyle(),
           ),
         );
       }
