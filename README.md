@@ -1,6 +1,7 @@
-# mobile_banking_app
+# Mobile Banking Application
 
-A new Flutter project.
+A Mobile Banking App UI for Android & IOS - An Open Source Project created by me. It is free for personal use only. 
+But you can't use it for commercial purposes. Thank you!
 
 ## Getting Started
 

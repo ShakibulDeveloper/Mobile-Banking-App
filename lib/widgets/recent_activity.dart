@@ -26,6 +26,7 @@ class RecentActivityListUI extends State<RecentActivityList>{
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       scrollDirection: Axis.vertical,
       itemCount: paymentActivities.length,

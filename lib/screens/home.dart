@@ -28,15 +28,64 @@ class HomeScreenUI extends State<HomeScreenState>{
   int activeCurrency = 0;
 
   List<Users> userList = [
-    Users(profilePic: 'assets/users/user1.png', name: 'Md Shakibul Alam', phoneNumber: '0814657513', balance: 1537.0),
+    Users(profilePic: 'assets/users/user1.png', name: 'Md Shakibul Alam', phoneNumber: '0814657513', balance: 1537.02),
     Users(profilePic: 'assets/users/user2.png', name: 'Charlotte', phoneNumber: '0324846542', balance: 0),
     Users(profilePic: 'assets/users/user3.png', name: 'Jhon Doe', phoneNumber: '04488765443', balance: 0),
     Users(profilePic: 'assets/users/user4.png', name: 'Angelica', phoneNumber: '07988600531', balance: 0),
   ];
 
   List<Currency> currencyList = [
-    Currency(status: 1, icon: Icons.currency_exchange, name: "USD"),
+    Currency(status: 1, icon: 'assets/currency/usd.png', name: "USD", code: "\$"),
+    Currency(status: 1, icon: 'assets/currency/euro.png', name: "EURO", code: "€"),
+    Currency(status: 1, icon: 'assets/currency/bdt.png', name: "BDT", code: "TK "),
   ];
+
+  //=====CURRENCY_CONVERT======
+  String currencyConvert(){
+    if(activeCurrency == 0){
+      return userList[0].balance.toStringAsFixed(2).toString();
+    }
+    else if(activeCurrency == 1){
+      double result = userList[0].balance*0.94;
+      return result.toStringAsFixed(2).toString();
+    }
+    else if(activeCurrency == 2){
+      double result = userList[0].balance*110.24;
+      return result.toStringAsFixed(2).toString();
+    }else{
+      return userList[0].balance.toStringAsFixed(2).toString();
+    }
+  }
+
+  //=====SELECT_CURRENCY_DIALOG======
+  selectCurrencyDialogue(){
+    return showDialog(context: context, builder: (context){
+      return AlertDialog(
+        title: Text('Select Currency', style: Theme.of(context).textTheme.bodyLarge),
+        content: SizedBox(
+          width: 100.w,
+          height: 60.sp,
+          child: GridView.builder(
+            itemCount: currencyList.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              crossAxisSpacing: 15.sp,
+            ),
+            itemBuilder: (context, index){
+              return GestureDetector(
+                  onTap: (){
+                    activeCurrency = index;
+                    Navigator.pop(context);
+                    setState(() {});
+                  },
+                  child: Image.asset(currencyList[index].icon)
+              );
+            },
+          ),
+        ),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +93,7 @@ class HomeScreenUI extends State<HomeScreenState>{
       appBar: AppBar(
         title: UserProfilePic(profilePic: userList[activeUser].profilePic),
         actions: [
+          IconButton(onPressed: (){}, icon: const Icon(Icons.add)),
           IconButton(onPressed: (){}, icon: const Icon(Icons.notifications)),
         ],
       ),
@@ -54,15 +104,17 @@ class HomeScreenUI extends State<HomeScreenState>{
           child: ListView(
             children: [
               SizedBox(height: 3.h),
-              Text('\$${userList[activeUser].balance.toStringAsFixed(1)}', style: Theme.of(context).textTheme.headlineLarge),
+              Text('${currencyList[activeCurrency].code}${currencyConvert()}', style: Theme.of(context).textTheme.headlineLarge),
               SizedBox(height: 1.h),
               Align(
                 alignment: Alignment.centerLeft,
                 child: SizedBox(
                   width: 40.w,
                   child: OutlinedButton.icon(
-                      onPressed: (){},
-                      icon: Icon(currencyList[activeCurrency].icon, size: 20.sp),
+                      onPressed: (){
+                        selectCurrencyDialogue();
+                      },
+                      icon: Image.asset(currencyList[activeCurrency].icon, width: 18.sp),
                       label: Text(currencyList[activeCurrency].name, style: TextStyle(fontFamily: "hind", fontSize: 16.sp)),
                   ),
                 ),

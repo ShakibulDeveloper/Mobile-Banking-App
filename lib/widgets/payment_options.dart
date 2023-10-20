@@ -17,12 +17,13 @@ class PaymentOptionUI extends State<PaymentOption>{
     PaymentOptions(icon: 'assets/send-money.png', name: 'Send Money'),
     PaymentOptions(icon: 'assets/payment.png', name: 'Receive Money'),
     PaymentOptions(icon: 'assets/phone-banking.png', name: 'Mobile Recharge'),
-    PaymentOptions(icon: 'assets/pay-bill.png', name: 'Pay All Bills'),
+    PaymentOptions(icon: 'assets/pay-bill.png', name: 'Pay Bills'),
   ];
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemCount: paymentOptions.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -44,7 +45,7 @@ class PaymentOptionUI extends State<PaymentOption>{
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset(paymentOptions[index].icon, height: 30.sp),
+                Image.asset(paymentOptions[index].icon, height: 32.sp),
                 SizedBox(height: 2.h),
                 Text(paymentOptions[index].name, style: Theme.of(context).textTheme.bodyLarge),
               ],

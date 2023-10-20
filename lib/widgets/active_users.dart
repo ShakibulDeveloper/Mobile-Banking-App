@@ -23,6 +23,7 @@ class ActiveUserGridUI extends State<ActiveUserGrid>{
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: widget.userList.length,
       shrinkWrap: true,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

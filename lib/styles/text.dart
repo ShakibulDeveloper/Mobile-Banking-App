@@ -14,7 +14,7 @@ TextTheme headlineTextStyle(){
       fontFamily: primaryFont,
     ),
     bodyLarge: TextStyle(
-      fontSize: 16.sp,
+      fontSize: 15.sp,
       fontWeight: fontBold,
       color: fontColor,
       fontFamily: primaryFont,
