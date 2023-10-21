@@ -3,10 +3,10 @@ import 'package:mobile_banking_app/widgets/recent_activity.dart';
 import 'package:sizer/sizer.dart';
 
 //widgets
-import 'package:mobile_banking_app/widgets/user_profile_pic.dart';
 import 'package:mobile_banking_app/widgets/payment_options.dart';
 import 'package:mobile_banking_app/widgets/active_users.dart';
 import 'package:mobile_banking_app/widgets/bottom_navbar.dart';
+import 'package:mobile_banking_app/widgets/primary_appbar.dart';
 
 //models
 import 'package:mobile_banking_app/models/users.dart';
@@ -26,6 +26,7 @@ class HomeScreenState extends StatefulWidget{
 class HomeScreenUI extends State<HomeScreenState>{
   int activeUser = 0;
   int activeCurrency = 0;
+  late double result;
 
   List<Users> userList = [
     Users(profilePic: 'assets/users/user1.png', name: 'Md Shakibul Alam', phoneNumber: '0814657513', balance: 1537.02),
@@ -46,11 +47,11 @@ class HomeScreenUI extends State<HomeScreenState>{
       return userList[0].balance.toStringAsFixed(2).toString();
     }
     else if(activeCurrency == 1){
-      double result = userList[0].balance*0.94;
+      result = userList[0].balance*0.94;
       return result.toStringAsFixed(2).toString();
     }
     else if(activeCurrency == 2){
-      double result = userList[0].balance*110.24;
+      result = userList[0].balance*110.24;
       return result.toStringAsFixed(2).toString();
     }else{
       return userList[0].balance.toStringAsFixed(2).toString();
@@ -90,13 +91,7 @@ class HomeScreenUI extends State<HomeScreenState>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: UserProfilePic(profilePic: userList[activeUser].profilePic),
-        actions: [
-          IconButton(onPressed: (){}, icon: const Icon(Icons.add)),
-          IconButton(onPressed: (){}, icon: const Icon(Icons.notifications)),
-        ],
-      ),
+      appBar: primaryAppBar(userList[activeUser].profilePic),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: ScrollConfiguration(
@@ -135,7 +130,7 @@ class HomeScreenUI extends State<HomeScreenState>{
           ),
         ),
       ),
-      bottomNavigationBar: const BottomNavBar(),
+      bottomNavigationBar: BottomNavBar(currentIndex: 0, activeUserProfilePic: userList[activeUser].profilePic),
     );
   }
 

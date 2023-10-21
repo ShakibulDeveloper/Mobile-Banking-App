@@ -10,6 +10,7 @@ class VerifyInput extends StatelessWidget{
       width: 20.w,
       height: 20.w,
       child: const TextField(
+        textAlign: TextAlign.center,
         maxLength: 1,
         keyboardType: TextInputType.number,
         textInputAction: TextInputAction.next,
