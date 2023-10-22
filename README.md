@@ -1,7 +1,8 @@
 # Mobile Banking Application
 
 This is an open-source project made by me. You can use it for personal purpose only. 
-Any commercial use is strictly restricted. Thank you!  
+Any commercial use is strictly restricted. Thank you!
+![Screenshot](app_preview.png)
 
 ## Getting Started
 
