@@ -16,7 +16,8 @@ import 'package:mobile_banking_app/models/currency.dart';
 
 
 class HomeScreenState extends StatefulWidget{
-  const HomeScreenState({super.key});
+  late String moneySpend;
+  HomeScreenState({super.key, this.moneySpend = '0'});
 
   @override
   State<StatefulWidget> createState() => HomeScreenUI();
@@ -89,6 +90,13 @@ class HomeScreenUI extends State<HomeScreenState>{
   }
 
   @override
+  void initState() {
+    super.initState();
+
+    userList[activeUser].balance -= double.parse(widget.moneySpend);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: primaryAppBar(userList[activeUser].profilePic),
@@ -117,7 +125,7 @@ class HomeScreenUI extends State<HomeScreenState>{
               SizedBox(height: 3.h,),
               Text("Here are some things to do", style: Theme.of(context).textTheme.bodySmall),
               SizedBox(height: 1.h),
-              const PaymentOption(),
+              PaymentOption(userList: userList),
               SizedBox(height: 3.h,),
               Text("All Active Users", style: Theme.of(context).textTheme.bodySmall),
               SizedBox(height: 2.h),
@@ -125,7 +133,7 @@ class HomeScreenUI extends State<HomeScreenState>{
               SizedBox(height: 3.h,),
               Text("Your Recent Activities", style: Theme.of(context).textTheme.bodySmall),
               SizedBox(height: 1.h),
-              RecentActivityList(userList: userList),
+              RecentActivityList(userList: userList, itemToShow: '3'),
             ],
           ),
         ),

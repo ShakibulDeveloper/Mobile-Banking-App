@@ -6,6 +6,7 @@ import 'package:mobile_banking_app/models/users.dart';
 
 //widgets
 import 'package:mobile_banking_app/widgets/user_profile_pic.dart';
+import 'package:mobile_banking_app/widgets/payment_bottom_modal.dart';
 
 //styles
 import 'package:mobile_banking_app/styles/theme_color.dart';
@@ -32,7 +33,19 @@ class ActiveUserGridUI extends State<ActiveUserGrid>{
       ),
       itemBuilder: (context, index){
         if(index != 0){
-          return UserProfilePic(profilePic: widget.userList[index].profilePic);
+          return GestureDetector(
+            onTap: (){
+              paymentBottomSheet(context,
+                  widget.userList[index].profilePic,
+                  widget.userList[index].name,
+                  widget.userList[index].phoneNumber,
+                  "Send Money",
+              );
+            },
+            child: UserProfilePic(
+                profilePic: widget.userList[index].profilePic
+              ),
+          );
         }else{
           return const CircleAvatar(
             backgroundColor: Colors.white60,

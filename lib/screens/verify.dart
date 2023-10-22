@@ -52,7 +52,7 @@ class VerifyScreen extends StatelessWidget{
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(backgroundColor: ThemeColor.primaryColor),
               onPressed: (){
-                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const HomeScreenState()), (route) => false);
+                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => HomeScreenState()), (route) => false);
               },
               child: const Text("Continue"),
             ),

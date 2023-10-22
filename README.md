@@ -1,7 +1,7 @@
 # Mobile Banking Application
 
-A Mobile Banking App UI for Android & IOS - An Open Source Project created by me. It is free for personal use only. 
-But you can't use it for commercial purposes. Thank you!
+This is an open-source project made by me. You can use it for personal purpose only. 
+Any commercial use is strictly restricted. Thank you!  
 
 ## Getting Started
 

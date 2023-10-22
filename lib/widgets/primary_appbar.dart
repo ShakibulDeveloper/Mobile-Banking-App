@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+//screens
+import 'package:mobile_banking_app/screens/activity.dart';
+
 //widgets
 import 'package:mobile_banking_app/widgets/user_profile_pic.dart';
 

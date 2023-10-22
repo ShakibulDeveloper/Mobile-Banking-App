@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:mobile_banking_app/screens/home.dart';
 import 'package:sizer/sizer.dart';
 
+//models
+import 'package:mobile_banking_app/models/users.dart';
+
 //screens
 import 'package:mobile_banking_app/screens/crypto.dart';
+import 'package:mobile_banking_app/screens/offers.dart';
+import 'package:mobile_banking_app/screens/activity.dart';
 
 //styles
 import 'package:mobile_banking_app/styles/theme_color.dart';
@@ -31,10 +36,19 @@ class BottomNavBarUI extends State<BottomNavBar>{
   bottomNavNavigator(int index){
     if(index == 1){
      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => CryptoScreen(activeUser: widget.activeUserProfilePic)),
-             (route) => false); //CryptoScreen
-    }else{
-      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const HomeScreenState()),
-              (route) => false); //HomeScreen
+             (route) => false); //CryptoScreenRoute
+    }
+    else if(index == 2){
+      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => OfferScreen(activeUser: widget.activeUserProfilePic)),
+              (route) => false); //OfferScreenRoute
+    }
+    else if(index == 3){
+      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => ActivityScreen(activeUser: widget.activeUserProfilePic)),
+              (route) => false); //ActivityScreenRoute
+    }
+    else{
+      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => HomeScreenState()),
+              (route) => false); //HomeScreenRoute
     }
   }
 
